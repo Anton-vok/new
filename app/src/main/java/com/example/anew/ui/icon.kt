@@ -1,4 +1,4 @@
-package com.example.anew.ui.theme
+package com.example.anew.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -21,6 +21,34 @@ fun iconHome(){
         Image(
             painter = painterResource(id = R.drawable.home),
             contentDescription = "ДОМИК",
+            modifier = Modifier.height(30.dp).width(30.dp).align(Alignment.Center)
+        )
+    }
+}
+
+@Composable
+fun iconAdd(){
+    Box(
+        Modifier
+            .height(50.dp)
+            .width(50.dp),){
+        Image(
+            painter = painterResource(id = R.drawable.add),
+            contentDescription = "ПЛЮСИК",
+            modifier = Modifier.height(30.dp).width(30.dp).align(Alignment.Center)
+        )
+    }
+}
+
+@Composable
+fun iconQR(){
+    Box(
+        Modifier
+            .height(50.dp)
+            .width(50.dp),){
+        Image(
+            painter = painterResource(id = R.drawable.qr),
+            contentDescription = "КУРА КОД",
             modifier = Modifier.height(30.dp).width(30.dp).align(Alignment.Center)
         )
     }
