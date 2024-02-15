@@ -179,7 +179,6 @@ class App(SqliteController.Controller):
             )
         except ConnectionError:
             return tuple()
-
     def popular_by_date(self, date: str) -> dict:
         categories = {}
         operation_list = super().get_data("expenses", f"date LIKE '%.{date}'", 1)

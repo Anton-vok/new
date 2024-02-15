@@ -1,5 +1,11 @@
 package com.example.anew.forPy
 
+
+import android.app.Application
+import com.chaquo.python.PyObject
+import com.chaquo.python.Python
+import com.chaquo.python.android.AndroidPlatform
+
 class Operation(
     var data     : String  = "",
     var sum      : Int     = 0,
@@ -9,9 +15,16 @@ class Operation(
 )
 
 class Back {
+
+    val py: Python = Python.getInstance()
+    val controllerModule: PyObject = py.getModule("app")
+    val controller: PyObject = controllerModule.callAttr("App")
+
     fun add(operation: Operation):Int{
-        //TODO
-        return 0
+        var type = "expenses"
+        var adoduass = controller.callAttr("add_into_table", operation.sum, operation.data, operation.name, type)
+
+        return adoduass.toInt()
     }
     fun getId(date: String):Pair<Int, Int>{
         //TODO
