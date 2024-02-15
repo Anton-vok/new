@@ -1,4 +1,4 @@
-package com.example.anew
+package com.example.anew.ui
 
 import com.example.anew.ui.MainTheme
 import androidx.compose.foundation.background
@@ -16,6 +16,9 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.anew.controlApp
+import com.example.anew.popApp
+import com.example.anew.screan
 import com.example.anew.ui.iconAdd
 import com.example.anew.ui.iconHome
 import com.example.anew.ui.iconQR
@@ -23,7 +26,6 @@ import com.example.anew.ui.iconQR
 
 @Composable
 fun hederLine(
-    list: MutableState<Int>,
     full: MutableState<Boolean> = mutableStateOf(true),
     theme: MainTheme = MainTheme()
 ) {
@@ -37,7 +39,10 @@ fun hederLine(
 
             Row(
                 Modifier.fillMaxHeight().width(160.dp).background(theme.panel, shape = RoundedCornerShape(30.dp))
-                    .clickable { list.value=1 }
+                    .clickable {
+                        popApp.value = 0
+                        screan.value = 0
+                    }
             ) {
                 iconHome()
             }
@@ -49,7 +54,7 @@ fun hederLine(
                 Box(
                     Modifier.fillMaxHeight().width(50.dp)
                         .background(theme.panel, shape = RoundedCornerShape(30.dp))
-                        .clickable { list.value = 2 }
+                        .clickable { popApp.value = 1 }
                 ) {
                     iconAdd()
                 }
@@ -59,11 +64,13 @@ fun hederLine(
                 Box(
                     Modifier.fillMaxHeight().width(50.dp)
                         .background(theme.panel, shape = RoundedCornerShape(30.dp))
-                        .clickable { list.value = 3 }
+                        .clickable {
+                            popApp.value = 0
+                            screan.value = 1
+                        }
                 ) {
                     iconQR()
                 }
-
             }
         }
         Box(Modifier.height(20.dp))
