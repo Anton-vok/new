@@ -24,8 +24,5 @@ class Back {
     }
 }
 fun main(){
-    var op = Operation()
-    var g= Back()
-    var t = g.add(op)
-    print(t)
+
 }

@@ -26,6 +26,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.anew.forPy.Back
+import com.example.anew.forPy.Operation
 import com.example.anew.list.addOp
 import com.example.anew.list.mainScrean
 import com.example.anew.list.tratList
@@ -48,9 +50,17 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            mainBox()
+            booox()
         }
     }
+}
+
+@Composable
+fun booox(){
+    var op = Operation()
+    var g= Back()
+    var t = g.add(op)
+    Text(t.toString())
 }
 @Composable
 fun mainBox(){
